@@ -34,8 +34,9 @@ public class AppInitializer {
         SpringBeanThree beanThree = ctx.getBean(SpringBeanThree.class);
         System.out.println(beanThree);
 
+        //Request Beans from Application Context using bean Id
         //Bean Name request (Bean ID)
-        //SpringBeanOne->  springBeanOne (Bean ID)
+        //SpringBeanOne->  springBeanOne (Bean ID) // how the default bean id is generated
         //SpringBeanOne springBeanOne = (SpringBeanOne) ctx.getBean("springBeanOne");
         //System.out.println(springBeanOne);
 
@@ -44,7 +45,8 @@ public class AppInitializer {
         //System.out.println(springBeanTwo);
 
         //SpringBeanThree -> springBeanThree
-        SpringBeanThree springBeanThree = (SpringBeanThree) ctx.getBean("springBeanThree");
+        // we can change the default bean id to what we want
+        SpringBeanThree springBeanThree = (SpringBeanThree) ctx.getBean("BeanThree");
         System.out.println(springBeanThree);
 
     }
