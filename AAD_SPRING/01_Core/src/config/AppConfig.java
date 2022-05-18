@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
  * @since : 0.1.0
  **/
 
+//Bean definitions walata source ekak
+// How to scan pojos and enter to the Application Context
 @Configuration
 @ComponentScan(basePackages = "bean")
 public class AppConfig {
@@ -15,3 +17,4 @@ public class AppConfig {
         System.out.println("App Config Object Created");
     }
 }
+
