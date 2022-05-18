@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @since : 0.1.0
  **/
 
-@Component
+//@Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class SpringBeanOne {
     public SpringBeanOne() {
