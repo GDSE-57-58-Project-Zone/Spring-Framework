@@ -1,6 +1,7 @@
 import bean.MyConnection;
 import bean.SpringBeanOne;
 import bean.SpringBeanThree;
+import bean.SpringBeanTwo;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -45,13 +46,13 @@ public class AppInitializer {
         //System.out.println(springBeanTwo);
 
         //SpringBeanThree -> springBeanThree
-        // we can change the default bean id to what we want
-//        SpringBeanThree springBeanThree = (SpringBeanThree) ctx.getBean("BeanThree");
-//        System.out.println(springBeanThree);
+        //we can change the default bean id to what we want
+        //SpringBeanThree springBeanThree = (SpringBeanThree) ctx.getBean("BeanThree");
+        //System.out.println(springBeanThree);
 
 
-        MyConnection bean = ctx.getBean(MyConnection.class);
-        System.out.println(bean);
+        //MyConnection bean = ctx.getBean(MyConnection.class);
+        //System.out.println(bean);
 
         //MyConnection -> myConnection // Not using the class name
         //@Bean - bean id -> create bean id from bean method name
@@ -59,8 +60,25 @@ public class AppInitializer {
         //System.out.println(myConnection);
 
         // we can change default id @Bean("connection")
-        MyConnection myConnection = (MyConnection) ctx.getBean("connection");
-        System.out.println(myConnection);
+        //MyConnection myConnection = (MyConnection) ctx.getBean("connection");
+        //System.out.println(myConnection);
 
+
+        SpringBeanOne ref1 = ctx.getBean(SpringBeanOne.class);
+        SpringBeanOne ref2 = ctx.getBean(SpringBeanOne.class);
+        SpringBeanOne ref3 = ctx.getBean(SpringBeanOne.class);
+        System.out.println(ref1);
+        System.out.println(ref2);
+        System.out.println(ref3);
+
+        SpringBeanTwo b2ref1 = ctx.getBean(SpringBeanTwo.class);
+        SpringBeanTwo b2ref2 = ctx.getBean(SpringBeanTwo.class);
+        System.out.println(b2ref1);
+        System.out.println(b2ref2);
+
+        MyConnection con1 = ctx.getBean(MyConnection.class);
+        MyConnection con2 = ctx.getBean(MyConnection.class);
+        System.out.println(con1);
+        System.out.println(con2);
     }
 }
