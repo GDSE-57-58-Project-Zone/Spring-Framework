@@ -1,3 +1,4 @@
+import bean.MyConnection;
 import bean.SpringBeanThree;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -21,8 +22,6 @@ public class AppInitializer {
         //}));
 
         ctx.registerShutdownHook();
-
-
         ctx.register(AppConfig.class);
         ctx.refresh();
 
@@ -31,8 +30,8 @@ public class AppInitializer {
         //System.out.println(beanOne);
         //System.out.println(beanTwo);
         //
-        SpringBeanThree beanThree = ctx.getBean(SpringBeanThree.class);
-        System.out.println(beanThree);
+//        SpringBeanThree beanThree = ctx.getBean(SpringBeanThree.class);
+//        System.out.println(beanThree);
 
         //Request Beans from Application Context using bean Id
         //Bean Name request (Bean ID)
@@ -46,8 +45,12 @@ public class AppInitializer {
 
         //SpringBeanThree -> springBeanThree
         // we can change the default bean id to what we want
-        SpringBeanThree springBeanThree = (SpringBeanThree) ctx.getBean("BeanThree");
-        System.out.println(springBeanThree);
+//        SpringBeanThree springBeanThree = (SpringBeanThree) ctx.getBean("BeanThree");
+//        System.out.println(springBeanThree);
+
+
+        MyConnection bean = ctx.getBean(MyConnection.class);
+        System.out.println(bean);
 
     }
 }
