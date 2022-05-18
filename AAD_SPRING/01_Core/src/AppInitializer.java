@@ -11,18 +11,21 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AppInitializer {
     public static void main(String[] args) {
 
-        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("JVM is about to Shut Down");
-            }
-        }));
-
-
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
 
-        ctx.register(AppConfig.class);
+//        //Run something just before jvm shutdown
+//        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println("JVM is about to Shut Down");
+//                ctx.close();
+//            }
+//        }));
 
+        ctx.registerShutdownHook();
+
+
+        ctx.register(AppConfig.class);
         ctx.refresh();
 
 
@@ -34,7 +37,7 @@ public class AppInitializer {
         SpringBeanThree beanThree = ctx.getBean(SpringBeanThree.class);
         System.out.println(beanThree);
 
-        ctx.close();
+
 
 
 
