@@ -1,4 +1,5 @@
 import bean.MyConnection;
+import bean.SpringBeanOne;
 import bean.SpringBeanThree;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,8 +31,8 @@ public class AppInitializer {
         //System.out.println(beanOne);
         //System.out.println(beanTwo);
         //
-//        SpringBeanThree beanThree = ctx.getBean(SpringBeanThree.class);
-//        System.out.println(beanThree);
+        //SpringBeanThree beanThree = ctx.getBean(SpringBeanThree.class);
+        //System.out.println(beanThree);
 
         //Request Beans from Application Context using bean Id
         //Bean Name request (Bean ID)
@@ -51,6 +52,15 @@ public class AppInitializer {
 
         MyConnection bean = ctx.getBean(MyConnection.class);
         System.out.println(bean);
+
+        //MyConnection -> myConnection // Not using the class name
+        //@Bean - bean id -> create bean id from bean method name
+        //MyConnection myConnection = (MyConnection) ctx.getBean("getConnection");
+        //System.out.println(myConnection);
+
+        // we can change default id @Bean("connection")
+        MyConnection myConnection = (MyConnection) ctx.getBean("connection");
+        System.out.println(myConnection);
 
     }
 }
