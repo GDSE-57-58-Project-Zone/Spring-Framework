@@ -2,8 +2,6 @@ import bean.SpringBeanOne;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javax.swing.*;
-
 /**
  * @author : Sanu Vithanage
  * @since : 0.1.0
