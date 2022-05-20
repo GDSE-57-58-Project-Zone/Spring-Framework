@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  * @since : 0.1.0
  **/
 @Configuration
-@ComponentScan(basePackages = "bean")
+@ComponentScan(basePackages = "di")
 public class AppConfig {
 }
