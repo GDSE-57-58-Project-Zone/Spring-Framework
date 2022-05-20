@@ -15,11 +15,15 @@ public class AppInitializer {
         context.registerShutdownHook();
 
 
-//        Boy boy = context.getBean(Boy.class);
-//        boy.chattingWithGirl();
+        Boy boy = context.getBean(Boy.class);
+        boy.chattingWithGirl();
 
-        Kamal kamal = context.getBean(Kamal.class);
-        kamal.chattingWithKamali();
+
+//        Kamal kamal = context.getBean(Kamal.class);
+//        kamal.chattingWithKamali();
+
+
+
 
 
     }
