@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     public SpringBeanOne() {
-        System.out.println("Spring Bean One Intantiated");
+        System.out.println("Spring Bean One Instantiated");
     }
 
     @Override
