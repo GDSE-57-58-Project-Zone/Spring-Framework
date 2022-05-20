@@ -16,10 +16,9 @@ public class AppInitializer {
 
 
         Boy boy = context.getBean(Boy.class);
-        Girl girl = context.getBean(Girl.class);
-        System.out.println(boy);
         boy.chattingWithGirl();
-        System.out.println(girl);
+//        Girl girl = context.getBean(Girl.class);
+//
 
 
 
