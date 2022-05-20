@@ -1,4 +1,5 @@
 import bean.Boy;
+import bean.Girl;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,8 +16,12 @@ public class AppInitializer {
 
 
         Boy boy = context.getBean(Boy.class);
+        Girl girl = context.getBean(Girl.class);
         System.out.println(boy);
         boy.chattingWithGirl();
+        System.out.println(girl);
+
+
 
 
 

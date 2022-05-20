@@ -1,5 +1,6 @@
 package bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,12 +10,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Boy {
+
+    @Autowired
+    Girl girl;
+
     public Boy() {
         System.out.println("Boy Instantiated");
     }
 
     public void chattingWithGirl(){
-        Girl girl = new Girl();
+        System.out.println("from boy"+this.girl);
         girl.chat();
     }
 }
