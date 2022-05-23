@@ -43,14 +43,14 @@ public class SpringBean implements BeanNameAware, BeanFactoryAware, ApplicationC
         System.out.println("Spring Bean Application Context Aware");
     }
 
-    //Light Mode
+//    //Light Mode
     @Bean
     public MyBasicDataSource basicDataSource() {
 
         //inter-bean dependency invocation
-        MyConnection myConnection1 = myConnection();
-        MyConnection myConnection2 = myConnection();
-        MyConnection myConnection3 = myConnection();
+        MyConnection myConnection1 = myConnection(); //not satisfying dependency // new object // not manage by application context
+        MyConnection myConnection2 = myConnection(); //not satisfying dependency // new object // not manage by application context
+        MyConnection myConnection3 = myConnection(); //not satisfying dependency// new object // not manage by application context
 
         System.out.println(myConnection1);
         System.out.println(myConnection2);
