@@ -10,9 +10,18 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public class SpringBeanOne implements InitializingBean {
-
+    //${} -> Property Placeholder
     @Value("${user.name}")
     private String osName;
+
+    @Value("${LOGNAME}")
+    private String logName;
+
+    @Value("${ijse.application.name}")
+    private String projectName;
+
+    @Value("${ijse.application.db}")
+    private String dbName;
 
     public SpringBeanOne() {
         System.out.println("Spring Bean One Instantiated");
@@ -22,5 +31,8 @@ public class SpringBeanOne implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println(osName);
+        System.out.println(logName);
+        System.out.println(projectName);
+        System.out.println(dbName);
     }
 }
