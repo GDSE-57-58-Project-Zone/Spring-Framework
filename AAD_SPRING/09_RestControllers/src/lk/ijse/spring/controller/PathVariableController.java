@@ -25,8 +25,7 @@ public class PathVariableController {
         return id;
     }
 
-
-    @GetMapping(path = "{customerID}/{customerName}") // alies
+    @GetMapping(path = "{customerID}/{customerName}") //  setting alias when parameters names and variable names differ
     public String test2(@PathVariable("customerID") String id,@PathVariable("customerName") String name) {
         return id +" "+name;
     }
