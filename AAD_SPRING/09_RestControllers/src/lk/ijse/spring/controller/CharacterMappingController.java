@@ -16,6 +16,7 @@ public class CharacterMappingController {
     // item/I333
     // item/Ivff
     // item/I001
+    //Matches single character
 
     @GetMapping(path = "item/I???")
     public String test() {
