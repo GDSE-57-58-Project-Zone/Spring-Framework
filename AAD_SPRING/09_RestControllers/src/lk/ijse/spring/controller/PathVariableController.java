@@ -21,13 +21,13 @@ public class PathVariableController {
     // To do that we have to crate path variables -> {I001}
 
     @GetMapping(path = "{id}")
-    public String test(@PathVariable("id") String itemCode) {
-        return itemCode;
+    public String test(@PathVariable String id) {
+        return id;
     }
 
 
-    @GetMapping(path = "{id}/{name}")
-    public String test2(@PathVariable String id,@PathVariable String name) {
+    @GetMapping(path = "{customerID}/{customerName}") // alies
+    public String test2(@PathVariable("customerID") String id,@PathVariable("customerName") String name) {
         return id +" "+name;
     }
 }
