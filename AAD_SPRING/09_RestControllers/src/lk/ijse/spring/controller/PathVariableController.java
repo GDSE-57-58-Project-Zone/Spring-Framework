@@ -13,10 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("variable")
 public class PathVariableController {
 
-    //http://localhost:8080/restcontroller/variable/I001
+    //http://localhost:8080/restcontroller/variable/GDSE
+    //(variable) path segments
+    //(I001) path segments
 
-    @GetMapping(path = "{I001}")
-    public String test(@PathVariable("I001") String itemCode) {
+    // In spring we can retrieve values of path segments
+    // To do that we have to crate path variables -> {I001}
+
+    @GetMapping(path = "{id}")
+    public String test(@PathVariable("id") String itemCode) {
         return itemCode;
+    }
+
+
+    @GetMapping(path = "{id}/{name}")
+    public String test2(@PathVariable String id,@PathVariable String name) {
+        return id +" "+name;
     }
 }
