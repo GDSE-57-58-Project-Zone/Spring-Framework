@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("two")
 public class WildCardMappingOptionTwo {
 
-    //http://localhost:8080/appname/path/path2/path (path segments)
+    //http://localhost:8080/appname/customer/C??? (path segments)
 
     //Wild Card Mapping Option Two
     //Matches 0 or More Characters in path segments until the end of the path
