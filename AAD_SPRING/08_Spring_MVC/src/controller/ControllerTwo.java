@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @Controller
-@RequestMapping("two") // Handler method
+@RequestMapping("customer") // Handler method
 public class ControllerTwo {
 
     //Mapping methods // Handler Methods
     @GetMapping
     public String testTwo() {
-        return "Hello Spring";
+        return "customer";
     }
 
 }
