@@ -21,6 +21,11 @@ public class CustomerController {
         return "Search Customers Invoked and Get Method Invoked";
     }
 
+    @GetMapping(path = "newid") //handler mapping
+    public String generateNewID(){ // handler methods
+        return "New Customers ID Invoked and Get Method Invoked";
+    }
+
     @PostMapping  //handler mapping
     public String saveCustomer(){ // handler methods
         return "Customer Saved and Post Method Invoked";
