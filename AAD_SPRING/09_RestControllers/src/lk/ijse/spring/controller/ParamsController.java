@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class ParamsController {
 
 
-    @GetMapping(params = {"param1","param2"})
-    public String test1() {
-        return "Hello 1";
+    @GetMapping(params = {"id","name"})
+    public String test1(String id,String name) {
+        return "Hello 1 " + id+" : "+name;
     }
 
     @GetMapping
     public String test2() {
         return "Hello 2";
+    }
+
+    @GetMapping(params = {"name","salary"})
+    public String test3(String name,double mySalary) {
+        return "Hello 3" +name+" "+mySalary;
     }
 
 }
