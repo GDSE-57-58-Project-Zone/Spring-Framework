@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("params")
 public class ParamsController {
 
+    //http://localhost:8080/restcontroller/params/one?id=C003
+    // start with ?
+    // id=C001&name=Dasun -> query params
 
     @GetMapping(params = {"id","name"})
     public String test1(String id,String name) {
