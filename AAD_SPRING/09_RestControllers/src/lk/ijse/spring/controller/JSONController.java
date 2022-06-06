@@ -21,7 +21,7 @@ public class JSONController {
         return "Hello JSON " + dto.toString();
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})//content-type=application/json
     public CustomerDTO sendBackJSON() {
         return new CustomerDTO("C001","Dasun","Galle",100.00);
     }
