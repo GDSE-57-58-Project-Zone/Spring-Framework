@@ -2,6 +2,7 @@ package lk.ijse.spring.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,13 +19,13 @@ public class ParamsController {
         return "Hello 1 " + id+" : "+name;
     }
 
-    @GetMapping
-    public String test2() {
-        return "Hello 2";
+    @GetMapping(path = "one",params = {"id"})
+    public String test2(String id) {
+        return "Hello 2 "+ id;
     }
 
     @GetMapping(params = {"name","salary"})
-    public String test3(String name,double mySalary) {
+    public String test3(@RequestParam String name,@RequestParam("salary") double mySalary) {
         return "Hello 3" +name+" "+mySalary;
     }
 
