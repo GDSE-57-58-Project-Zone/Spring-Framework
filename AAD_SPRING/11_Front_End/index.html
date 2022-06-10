@@ -129,19 +129,19 @@
 
         // initiate the request
         $.ajax({
-            url: "http://localhost:8080/filter/customer?CusID=" + customerID,// viya query string
+            url: "http://localhost:8080/10_SpringWithMaven_war/api/v1/customer?id=" + customerID,// viya query string
             method: "DELETE",
             //data:data,// application/x-www-form-urlencoded
             success: function (res) {
                 console.log(res);
-                if (res.status == 200) {
-                    alert(res.message);
-                    loadAllCustomers();
-                } else if (res.status == 400) {
-                    alert(res.data);
-                } else {
-                    alert(res.data);
-                }
+                // if (res.status == 200) {
+                //     alert(res.message);
+                //     loadAllCustomers();
+                // } else if (res.status == 400) {
+                //     alert(res.data);
+                // } else {
+                //     alert(res.data);
+                // }
 
             },
             error: function (ob, status, t) {

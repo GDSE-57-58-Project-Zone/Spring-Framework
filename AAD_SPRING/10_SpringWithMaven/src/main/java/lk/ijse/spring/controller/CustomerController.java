@@ -30,7 +30,7 @@ public class CustomerController {
     }
 
 
-    @PutMapping(consumes ={MediaType.APPLICATION_JSON_VALUE} )
+    @PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public CustomerDTO updateCustomer(@RequestBody CustomerDTO dto) {
         System.out.println(dto.toString());
         return dto;
@@ -41,6 +41,11 @@ public class CustomerController {
     public CustomerDTO saveCustomer(@ModelAttribute CustomerDTO dto) {
         System.out.println(dto.toString());
         return dto;
+    }
+
+    @DeleteMapping(params = {"id"})
+    public CustomerDTO deleteCustomer(@RequestParam String id) {
+        return new CustomerDTO(id, "Dasun", "Galle", 200);
     }
 
 
