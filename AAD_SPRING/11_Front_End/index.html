@@ -175,11 +175,11 @@
     function loadAllCustomers() {
         $("#tblCustomerJson").empty();
         $.ajax({
-            url: "http://localhost:8080/filter/customer?option=GETALL",
+            url: "http://localhost:8080/10_SpringWithMaven_war/api/v1/customer",
             method: "GET",
             // dataType:"json", // please convert the response into JSON
             success: function (resp) {
-                for (const customer of resp.data) {
+                for (const customer of resp) {
                     let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
                     $("#tblCustomerJson").append(row);
                 }
