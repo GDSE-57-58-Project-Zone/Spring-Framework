@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/10_SpringWithMaven" />
+    <file type="web" url="file://$PROJECT_DIR$/11_SpringDataJPA" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/dd" />
@@ -10,6 +11,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/10_SpringWithMaven/pom.xml" />
+        <option value="$PROJECT_DIR$/11_SpringDataJPA/pom.xml" />
       </list>
     </option>
   </component>
