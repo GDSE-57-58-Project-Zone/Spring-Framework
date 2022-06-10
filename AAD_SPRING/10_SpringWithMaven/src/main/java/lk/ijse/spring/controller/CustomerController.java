@@ -14,10 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("customer")
 public class CustomerController {
 
+
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CustomerDTO searchCustomer() {
+        return new CustomerDTO("C002","GDSE","Panadura",1000);
+    }
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public CustomerDTO getAllCustomers() {
         return new CustomerDTO("C001","IJSE","Panadura",1000);
     }
+
+
+
+
+
 
 
 }
