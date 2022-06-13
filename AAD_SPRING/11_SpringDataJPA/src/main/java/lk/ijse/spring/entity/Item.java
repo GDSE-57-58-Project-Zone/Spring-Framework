@@ -56,4 +56,15 @@ public class Item {
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Item{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", qtyOnHand=").append(qtyOnHand);
+        sb.append(", unitPrice=").append(unitPrice);
+        sb.append('}');
+        return sb.toString();
+    }
 }
