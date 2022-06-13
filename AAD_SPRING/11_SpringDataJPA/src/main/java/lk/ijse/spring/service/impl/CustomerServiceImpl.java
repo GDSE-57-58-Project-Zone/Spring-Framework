@@ -52,7 +52,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer searchCustomer(String id) {
-        return repo.findById(id).get();
+        if (repo.existsById(id)){
+            return repo.findById(id).get();
+        }else{
+            throw new RuntimeException("No Customer For "+id+" ..!");
+        }
     }
 
     @Override

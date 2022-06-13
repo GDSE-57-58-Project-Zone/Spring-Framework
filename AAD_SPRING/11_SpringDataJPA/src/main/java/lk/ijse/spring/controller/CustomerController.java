@@ -35,10 +35,14 @@ public class CustomerController {
     }
 
     @DeleteMapping(params = {"id"})
-    public void deleteCustomer(@RequestParam String id){
+    public void deleteCustomer(@RequestParam String id) {
         customerService.deleteCustomer(id);
     }
 
+    @GetMapping(path = "/{id}")
+    public Customer searchCustomer(@PathVariable String id) {
+        return customerService.searchCustomer(id);
+    }
 
 
 }
