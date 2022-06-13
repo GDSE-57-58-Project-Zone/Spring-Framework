@@ -22,9 +22,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(Customer entity) {
-        if (!repo.existsById(entity.getId())){
+        if (!repo.existsById(entity.getId())) {
             repo.save(entity);
-        }else{
+        } else {
             throw new RuntimeException("Customer Already Exist..!");
         }
 
@@ -37,7 +37,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(Customer entity) {
-        repo.save(entity);
+        if (repo.existsById(entity.getId())) {
+            repo.save(entity);
+        } else {
+            throw new RuntimeException("No Such Customer To Update..! Please Check the ID..!");
+        }
+
     }
 
     @Override
