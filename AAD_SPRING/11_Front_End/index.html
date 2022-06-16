@@ -242,7 +242,7 @@
             method:"GET",
             success: function (res) {
                 if (res.code=200){
-                    var customer= red.data;
+                    var customer= res.data;
                     $("#cusID").val(customer.id);
                     $("#cusName").val(customer.name);
                     $("#cusAddress").val(customer.address);
