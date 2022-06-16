@@ -4,6 +4,7 @@ import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.service.CustomerService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,13 +23,16 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepo repo;
 
+    @Autowired
+    private ModelMapper mapper;
+
     @Override
     public void saveCustomer(CustomerDTO dto) {
         if (!repo.existsById(dto.getId())) {
-
-            Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress(), dto.getSalary());
-
-            repo.save(customer);
+            //Customer entity = mapper.map(dto, Customer.class);
+            //01. Source -> main source
+            //02. Destination Type -> class type which we want to convert the source
+            repo.save(mapper.map(dto, Customer.class));
         } else {
             throw new RuntimeException("Customer Already Exist..!");
         }
@@ -63,6 +67,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (repo.existsById(id)){
 
             Customer customer = repo.findById(id).get();
+
             return new CustomerDTO(customer.getId(),customer.getName(),customer.getAddress(),customer.getSalary());
         }else{
             throw new RuntimeException("No Customer For "+id+" ..!");
