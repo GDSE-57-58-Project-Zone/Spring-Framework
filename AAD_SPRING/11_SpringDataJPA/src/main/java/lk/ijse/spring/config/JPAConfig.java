@@ -44,12 +44,15 @@ public class JPAConfig {
 
     @Bean
     public DataSource dataSource() throws NamingException {
-//        DriverManagerDataSource dataSource= new DriverManagerDataSource();
-//        dataSource.setUrl(env.getRequiredProperty("my.app.url"));
-//        dataSource.setUsername(env.getRequiredProperty("my.app.username"));
-//        dataSource.setPassword(env.getRequiredProperty("my.app.password"));
-//        dataSource.setDriverClassName(env.getRequiredProperty("my.app.driverclassname"));
-//        return dataSource;
+        //Driver Manager Data Source
+        //DriverManagerDataSource dataSource= new DriverManagerDataSource();
+        //dataSource.setUrl(env.getRequiredProperty("my.app.url"));
+        //dataSource.setUsername(env.getRequiredProperty("my.app.username"));
+        //dataSource.setPassword(env.getRequiredProperty("my.app.password"));
+        //dataSource.setDriverClassName(env.getRequiredProperty("my.app.driverclassname"));
+        //return dataSource;
+
+        // JNDI data source
         return (DataSource) new JndiTemplate().lookup("java:comp/env/jdbc/pool");
     }
 
