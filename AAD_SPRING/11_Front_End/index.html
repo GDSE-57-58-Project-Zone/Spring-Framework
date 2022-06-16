@@ -132,14 +132,12 @@
             method: "POST",
             data: data,// if we send data with the request
             success: function (res) {
-                console.log(res);
-                // if (res.status == 200) {
-                //     alert(res.message);
-                //     loadAllCustomers();
-                // } else {
-                //     alert(res.data);
-                // }
+                if (res.code == 200) {
+                    alert("Successfully Customer Registered");
+                    loadAllCustomers();
+                } else {
 
+                }
             },
             error: function (ob, textStatus, error) {
                 console.log(ob);
@@ -157,7 +155,8 @@
             method: "GET",
             // dataType:"json", // please convert the response into JSON
             success: function (resp) {
-                for (const customer of resp) {
+
+                for (const customer of resp.data) {
                     let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.salary}</td></tr>`;
                     $("#tblCustomerJson").append(row);
                 }
