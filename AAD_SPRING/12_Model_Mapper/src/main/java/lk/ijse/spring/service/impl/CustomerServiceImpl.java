@@ -5,6 +5,7 @@ import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.service.CustomerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,10 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void updateCustomer(CustomerDTO dto) {
         if (repo.existsById(dto.getId())) {
-
-            Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress(), dto.getSalary());
-
-            repo.save(customer);
+            repo.save(mapper.map(dto, Customer.class));
         } else {
             throw new RuntimeException("No Such Customer To Update..! Please Check the ID..!");
         }
@@ -65,10 +63,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO searchCustomer(String id) {
         if (repo.existsById(id)){
-
-            Customer customer = repo.findById(id).get();
-
-            return new CustomerDTO(customer.getId(),customer.getName(),customer.getAddress(),customer.getSalary());
+            return mapper.map( repo.findById(id).get(), CustomerDTO.class);
         }else{
             throw new RuntimeException("No Customer For "+id+" ..!");
         }
@@ -76,11 +71,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        List<Customer> all = repo.findAll();
-        List<CustomerDTO> arrayList= new ArrayList<>();
-        for (Customer customer : all) {
-            arrayList.add(new CustomerDTO(customer.getId(),customer.getName(),customer.getAddress(),customer.getSalary()));
-        }
-        return arrayList;
+        return mapper.map(repo.findAll(),new TypeToken<List<CustomerDTO>>(){}.getType());
     }
 }
