@@ -135,6 +135,7 @@
                 if (res.code == 200) {
                     alert("Successfully Customer Registered");
                     loadAllCustomers();
+                    clearForm();
                 } else {
 
                 }
@@ -161,6 +162,7 @@
                     $("#tblCustomerJson").append(row);
                 }
                 bindClickEvents();
+                clearForm();
             },
             error: function (ob, state) {
                 console.log(ob, state)
@@ -185,11 +187,11 @@
             contentType: "application/json", //You should state request's content type using MIME types
             data: JSON.stringify(cusOb), // format js object to valid json string
             success: function (res) {
-                console.log(res);
-                // if (res.status == 200) { // process is  ok
-                //     alert(res.message);
-                //     loadAllCustomers();
-                // } else if (res.status == 400) { // there is a problem with the client side
+                if (res.code == 200) { // process is  ok
+                    alert("Successfully Updated");
+                    loadAllCustomers();
+                    clearForm();
+                }// else if (res.status == 400) { // there is a problem with the client side
                 //     alert(res.message);
                 // } else {
                 //     alert(res.data); // else maybe there is an exception
@@ -212,11 +214,11 @@
             method: "DELETE",
             //data:data,// application/x-www-form-urlencoded
             success: function (res) {
-                console.log(res);
-                // if (res.status == 200) {
-                //     alert(res.message);
-                //     loadAllCustomers();
-                // } else if (res.status == 400) {
+                if (res.code == 200) {
+                    alert("Customer Successfully Deleted");
+                    loadAllCustomers();
+                    clearForm();
+                 }// else if (res.status == 400) {
                 //     alert(res.data);
                 // } else {
                 //     alert(res.data);
@@ -239,12 +241,27 @@
             url: baseUrl+"/"+customerID,
             method:"GET",
             success: function (res) {
-                console.log(res);
+                if (res.code=200){
+                    var customer= red.data;
+                    $("#cusID").val(customer.id);
+                    $("#cusName").val(customer.name);
+                    $("#cusAddress").val(customer.address);
+                    $("#cusSalary").val(customer.salary);
+                }else{
+                    clearForm();
+                }
             }
         });
     }
 
-
+    //Clear Customer Input Fields
+    function clearForm(){
+        $("#cusID").val("");
+        $("#cusName").val("");
+        $("#cusAddress").val("");
+        $("#cusSalary").val("");
+        $("#cusID").focus();
+    }
 
 </script>
 </body>
