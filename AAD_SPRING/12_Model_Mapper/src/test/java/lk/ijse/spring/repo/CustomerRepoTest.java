@@ -1,4 +1,4 @@
-package repo;
+package lk.ijse.spring.repo;
 
 import lk.ijse.spring.config.JPAConfig;
 import lk.ijse.spring.dto.CustomerDTO;
