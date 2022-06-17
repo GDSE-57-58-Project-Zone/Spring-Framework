@@ -23,7 +23,7 @@ import java.util.Optional;
 @WebAppConfiguration // State test configuration class
 @ContextConfiguration(classes = {JPAConfig.class}) // import configurations for Test Context
 @ExtendWith(SpringExtension.class) // Run with Spring Extension
-@Transactional
+//@Transactional
 class CustomerRepoTest {
 
     @Autowired
@@ -80,6 +80,12 @@ class CustomerRepoTest {
     public void testDTO(){
         CustomerDTO customerDTO = new CustomerDTO("","","",100.00);
 
+    }
+
+    @Test
+    public void searchCustomerByName(){
+        Customer dasun = customerRepo.findCustomerByName("Kasun");
+        System.out.println(dasun.toString());
     }
 
 
