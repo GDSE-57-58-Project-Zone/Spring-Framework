@@ -8,5 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @since : 0.1.0
  **/
 public interface CustomerRepo extends JpaRepository<Customer, String> {
-    Customer findCustomerByName(String name); //query methods
+    //query methods
+    Customer findCustomerByName(String name);
+
+    Customer findCustomerByAddress(String address);
+
+
+
 }

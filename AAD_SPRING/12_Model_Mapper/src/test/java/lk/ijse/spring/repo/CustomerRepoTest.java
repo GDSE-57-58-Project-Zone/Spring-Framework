@@ -88,6 +88,12 @@ class CustomerRepoTest {
         System.out.println(dasun.toString());
     }
 
+    @Test
+    public void searchCustomerByAddress(){
+        Customer dasun = customerRepo.findCustomerByAddress("Kaluthara");
+        System.out.println(dasun.toString());
+    }
+
 
 
 
