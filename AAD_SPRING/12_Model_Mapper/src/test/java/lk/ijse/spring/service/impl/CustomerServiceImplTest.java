@@ -11,8 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author : Sanu Vithanage
@@ -29,21 +28,26 @@ class CustomerServiceImplTest {
     @Autowired
     CustomerService customerService;
 
+    public CustomerDTO addTestCustomers() {
+        //If it is a new Customer It should added to the database
+        return new CustomerDTO("C001", "Ramal", "Galle", 1000.00);
+    }
+
+
     @Test
     void saveCustomer() {
-        //If it is a new Customer It should added to the database
-        CustomerDTO customerDTO1 = new CustomerDTO("C001", "Ramal", "Galle", 1000.00);
 
+        CustomerDTO customerDTO = addTestCustomers();
         //Check there is no errors
         //If there are no errors test ok
         //If there are errors test is false
-        assertDoesNotThrow(()->{
-            customerService.saveCustomer(customerDTO1);
+        assertDoesNotThrow(() -> {
+            customerService.saveCustomer(customerDTO);
         });
 
 
         // If the customer already exist. check if it is throwing the error
-        CustomerDTO customerDTO2 = new CustomerDTO("C001", "Ramal", "Galle", 1000.00);
+        CustomerDTO customerDTO2 =addTestCustomers();
 
         //Check if there is a error. If there is a error test is ok
         //If there is no error test case false
@@ -63,6 +67,21 @@ class CustomerServiceImplTest {
 
     @Test
     void searchCustomer() {
+        CustomerDTO customerDTO1 = addTestCustomers();
+
+        customerService.saveCustomer(customerDTO1);
+
+        CustomerDTO c001 = customerService.searchCustomer("C001");
+
+        assertNotNull(c001);
+
+
+
+        assertThrows(RuntimeException.class, () -> {
+            CustomerDTO c002 = customerService.searchCustomer("C002");
+        });
+
+
     }
 
     @Test
