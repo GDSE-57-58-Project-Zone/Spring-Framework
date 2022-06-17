@@ -84,15 +84,22 @@ class CustomerRepoTest {
 
     @Test
     public void searchCustomerByName(){
-        Customer dasun = customerRepo.findCustomerByName("Kasun");
-        System.out.println(dasun.toString());
+        Customer c1 = customerRepo.findCustomerByName("Kasun");
+        System.out.println(c1.toString());
     }
 
     @Test
     public void searchCustomerByAddress(){
-        Customer dasun = customerRepo.findCustomerByAddress("Kaluthara");
-        System.out.println(dasun.toString());
+        Customer c1 = customerRepo.findCustomerByAddress("Kaluthara");
+        System.out.println(c1.toString());
     }
+
+    @Test
+    public void searchCustomerByNameAndAddress(){
+        Customer c1 = customerRepo.findCustomerByNameAndAddress("Kasun","Kaluthara");
+        System.out.println(c1.toString());
+    }
+
 
 
 
