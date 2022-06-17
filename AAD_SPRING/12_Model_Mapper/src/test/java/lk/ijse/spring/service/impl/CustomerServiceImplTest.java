@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @WebAppConfiguration
 @ContextConfiguration(classes = {WebAppConfig.class})
 @ExtendWith(SpringExtension.class)
-@Transactional
+@Transactional // dont commit anything to database // just test is it working properly or not
 class CustomerServiceImplTest {
 
     @Autowired
