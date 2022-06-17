@@ -73,12 +73,12 @@
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script>
 
-    var baseUrl="http://localhost:8080/mapper/api/v1/customer";
+    var baseUrl = "http://localhost:8080/mapper/api/v1/customer";
 
     //Events
     //Search Customer Event
     $("#cusID").on("keypress", function (e) {
-        if (e.key=="Enter"){
+        if (e.key == "Enter") {
             searchCustomer();
         }
     });
@@ -90,17 +90,17 @@
 
     //Save Customer Event
     $("#btnSaveCustomer").click(function () {
-      saveCustomer();
+        saveCustomer();
     });
 
     //Delete Customer Event
     $("#btnDeleteCustomer").click(function () {
-       deleteCustomer();
+        deleteCustomer();
     });
 
     //Update Customer Event
     $("#btnUpdateCustomer").click(function () {
-      updateCustomer();
+        updateCustomer();
     });
 
     //Bind click events to the table rows
@@ -125,7 +125,7 @@
     loadAllCustomers();
 
     //Save Customer
-    function saveCustomer(){
+    function saveCustomer() {
         var data = $("#customerForm").serialize(); // return query string of form with name:type-value
         $.ajax({
             url: baseUrl,
@@ -136,14 +136,10 @@
                     alert("Successfully Customer Registered");
                     loadAllCustomers();
                     clearForm();
-                } else {
-
                 }
             },
-            error: function (ob, textStatus, error) {
-                console.log(ob);
-                console.log(textStatus);
-                console.log(error);
+            error: function (ob) {
+                alert(ob.responseJSON.message);
             }
         });
     }
@@ -172,7 +168,7 @@
     }
 
     //Update Customer
-    function updateCustomer(){
+    function updateCustomer() {
         //creating a js object with relevant data which you wanna send to the server
         var cusOb = {
             id: $("#cusID").val(),
@@ -204,13 +200,13 @@
     }
 
     //Delete Customer
-    function deleteCustomer(){
+    function deleteCustomer() {
         // Get the customer id
         let customerID = $("#cusID").val();
 
         // initiate the request
         $.ajax({
-            url: baseUrl+"?id=" + customerID,// viya query string
+            url: baseUrl + "?id=" + customerID,// viya query string
             method: "DELETE",
             //data:data,// application/x-www-form-urlencoded
             success: function (res) {
@@ -218,7 +214,7 @@
                     alert("Customer Successfully Deleted");
                     loadAllCustomers();
                     clearForm();
-                 }// else if (res.status == 400) {
+                }// else if (res.status == 400) {
                 //     alert(res.data);
                 // } else {
                 //     alert(res.data);
@@ -234,20 +230,20 @@
     }
 
     //Search Customer
-    function searchCustomer(){
-        var customerID=  $("#cusID").val();
+    function searchCustomer() {
+        var customerID = $("#cusID").val();
 
         $.ajax({
-            url: baseUrl+"/"+customerID,
-            method:"GET",
+            url: baseUrl + "/" + customerID,
+            method: "GET",
             success: function (res) {
-                if (res.code=200){
-                    var customer= res.data;
+                if (res.code = 200) {
+                    var customer = res.data;
                     $("#cusID").val(customer.id);
                     $("#cusName").val(customer.name);
                     $("#cusAddress").val(customer.address);
                     $("#cusSalary").val(customer.salary);
-                }else{
+                } else {
                     clearForm();
                 }
             }
@@ -255,7 +251,7 @@
     }
 
     //Clear Customer Input Fields
-    function clearForm(){
+    function clearForm() {
         $("#cusID").val("");
         $("#cusName").val("");
         $("#cusAddress").val("");
