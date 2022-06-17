@@ -28,7 +28,7 @@ class CustomerServiceImplTest {
     @Autowired
     CustomerService customerService;
 
-    public CustomerDTO addTestCustomers() {
+    public CustomerDTO addOneCustomer() {
         //If it is a new Customer It should added to the database
         return new CustomerDTO("C001", "Ramal", "Galle", 1000.00);
     }
@@ -37,7 +37,7 @@ class CustomerServiceImplTest {
     @Test
     void saveCustomer() {
 
-        CustomerDTO customerDTO = addTestCustomers();
+        CustomerDTO customerDTO = addOneCustomer();
         //Check there is no errors
         //If there are no errors test ok
         //If there are errors test is false
@@ -45,9 +45,8 @@ class CustomerServiceImplTest {
             customerService.saveCustomer(customerDTO);
         });
 
-
         // If the customer already exist. check if it is throwing the error
-        CustomerDTO customerDTO2 =addTestCustomers();
+        CustomerDTO customerDTO2 =addOneCustomer();
 
         //Check if there is a error. If there is a error test is ok
         //If there is no error test case false
@@ -67,16 +66,15 @@ class CustomerServiceImplTest {
 
     @Test
     void searchCustomer() {
-        CustomerDTO customerDTO1 = addTestCustomers();
+        CustomerDTO customer = addOneCustomer();
+        customerService.saveCustomer(customer);
 
-        customerService.saveCustomer(customerDTO1);
-
+        //search an available customer
         CustomerDTO c001 = customerService.searchCustomer("C001");
+        assertNotNull(c001); // check customer is null or not
 
-        assertNotNull(c001);
-
-
-
+        //check non existing customer
+        //should throw error
         assertThrows(RuntimeException.class, () -> {
             CustomerDTO c002 = customerService.searchCustomer("C002");
         });
