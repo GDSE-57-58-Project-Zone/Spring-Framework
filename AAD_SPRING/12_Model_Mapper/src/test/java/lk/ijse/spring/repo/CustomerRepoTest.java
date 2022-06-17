@@ -85,7 +85,9 @@ class CustomerRepoTest {
     @Test
     public void searchCustomerByName(){
         Customer c1 = customerRepo.findCustomerByName("Kasun");
+        Customer c2 = customerRepo.findByName("Kasun");
         System.out.println(c1.toString());
+        System.out.println(c2.toString());
     }
 
     @Test
@@ -100,6 +102,35 @@ class CustomerRepoTest {
         System.out.println(c1.toString());
     }
 
+    @Test
+    public void searchByName(){
+        List<Customer> customers = customerRepo.searchByName("Dasun");
+        for (Customer customer : customers) {
+            System.out.println(customer.toString());
+        }
+    }
+
+
+    @Test
+    public void t1(){
+        Customer c1 = customerRepo.findByName("Dasun");
+        System.out.println(c1.toString());
+
+        Customer c2 = customerRepo.readByName("Dasun");
+        System.out.println(c2.toString());
+
+        Customer c3 = customerRepo.getByName("Dasun");
+        System.out.println(c3.toString());
+
+        Customer c4 = customerRepo.queryByName("Dasun");
+        System.out.println(c4.toString());
+
+//        Customer c5 = customerRepo.searchByName("Kasun");
+//        System.out.println(c5.toString());
+
+        Customer c6 = customerRepo.streamByName("Kasun");
+        System.out.println(c6.toString());
+    }
 
 
 
