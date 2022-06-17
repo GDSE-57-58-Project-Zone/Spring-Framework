@@ -25,12 +25,14 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
 
     Customer queryByName(String name);
 
-//    Customer searchByName(String name);
+    //Customer searchByName(String name);
 
+    // If there is only one record you can set the return type as follow
     Customer streamByName(String name);
 
+    //If the query has more than one result you have
+    //to change the method return type to list
     List<Customer> searchByName(String name);
-
 
 
 
