@@ -11,6 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
@@ -32,12 +33,20 @@ class CustomerServiceImplTest {
     void saveCustomer() {
         //If it is a new Customer It should added to the database
         CustomerDTO customerDTO1 = new CustomerDTO("C001", "Ramal", "Galle", 1000.00);
-        customerService.saveCustomer(customerDTO1);
+
+        //Check there is no errors
+        //If there are no errors test ok
+        //If there are errors test is false
+        assertDoesNotThrow(()->{
+            customerService.saveCustomer(customerDTO1);
+        });
 
 
         // If the customer already exist. check if it is throwing the error
         CustomerDTO customerDTO2 = new CustomerDTO("C001", "Ramal", "Galle", 1000.00);
-        // Check if there is a error
+
+        //Check if there is a error. If there is a error test is ok
+        //If there is no error test case false
         assertThrows(RuntimeException.class, () -> {
             customerService.saveCustomer(customerDTO2);
         });
