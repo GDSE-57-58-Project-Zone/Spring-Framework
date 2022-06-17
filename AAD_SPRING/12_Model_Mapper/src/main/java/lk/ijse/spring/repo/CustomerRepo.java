@@ -34,6 +34,12 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     //to change the method return type to list
     List<Customer> searchByName(String name);
 
+    //test countBy
+
+    //test existBy
+
+
+
 
 
 }
