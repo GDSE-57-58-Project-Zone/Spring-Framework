@@ -124,8 +124,6 @@ class CustomerServiceImplTest {
         assertThrows(RuntimeException.class, () -> {
             CustomerDTO c002 = customerService.searchCustomer("C002");
         });
-
-
     }
 
     @Test
