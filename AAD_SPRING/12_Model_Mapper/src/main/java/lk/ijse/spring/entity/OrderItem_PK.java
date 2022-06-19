@@ -16,7 +16,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Embeddable
 public class OrderItem_PK implements Serializable {
     private String oid;
     private String itemCode;

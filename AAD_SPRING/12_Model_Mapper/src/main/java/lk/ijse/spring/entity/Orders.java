@@ -24,7 +24,7 @@ public class Orders {
     private LocalDate date;
 
     //Out=verse
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name = "customerID",referencedColumnName = "id",nullable = false)
     private Customer customer;
 

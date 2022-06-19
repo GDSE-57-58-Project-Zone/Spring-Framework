@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * @author : Sanu Vithanage
@@ -19,9 +16,12 @@ import javax.persistence.ManyToOne;
 @Data
 @Entity
 @ToString
+@IdClass(OrderItem_PK.class)
 public class OrderDetails {
-    @EmbeddedId
-    private OrderItem_PK orderItem_pk;
+    @Id
+    private String oid;
+    @Id
+    private String itemCode;
     private int qty;
     private double unitPrice;
 
@@ -33,11 +33,7 @@ public class OrderDetails {
     //Out-verse
     @ManyToOne
     @JoinColumn(name = "itemCode",referencedColumnName = "code",insertable = false,updatable = false)
-    private Item item;
+    private Item items;
 
-    public OrderDetails(String oid,String itemCode, int qty, double unitPrice) {
-        this.orderItem_pk = new OrderItem_PK(oid,itemCode);
-        this.qty = qty;
-        this.unitPrice = unitPrice;
-    }
+
 }
