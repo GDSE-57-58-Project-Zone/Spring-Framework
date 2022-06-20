@@ -80,4 +80,7 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     @Query(value = "select c from Customer c where c.id=?1")
     Customer getAllCustomersWithJPQLWithParams(String id);
 
+
+    
+
 }

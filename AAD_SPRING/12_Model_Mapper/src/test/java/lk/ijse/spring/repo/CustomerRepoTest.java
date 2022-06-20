@@ -7,6 +7,9 @@ import lk.ijse.spring.repo.CustomerRepo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -188,6 +191,17 @@ class CustomerRepoTest {
         Customer customer = customerRepo.getAllCustomersWithJPQLWithParams("C001");
         System.out.println(customer.toString());
     }
+
+
+    @Test
+    public void checkPageableFeatures(){
+        PageRequest pr = PageRequest.of(0, 4);
+        Page<Customer> all = customerRepo.findAll(pr);
+        all.forEach(v->{
+            System.out.println(v.toString());
+        });
+    }
+
 
 }
 
