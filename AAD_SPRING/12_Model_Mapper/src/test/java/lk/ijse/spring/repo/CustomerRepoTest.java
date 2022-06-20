@@ -134,6 +134,18 @@ class CustomerRepoTest {
 
 
 
+    @Test
+    public void testCountBy(){
+        long ramal = customerRepo.countByName("Ramali");
+        System.out.println(ramal);
+    }
 
+    @Test
+    public void testExistBy(){
+        boolean b = customerRepo.existsByNameAndAddress("Kamal", "Galle");
+        System.out.println(b);
+    }
 
 }
+
+
