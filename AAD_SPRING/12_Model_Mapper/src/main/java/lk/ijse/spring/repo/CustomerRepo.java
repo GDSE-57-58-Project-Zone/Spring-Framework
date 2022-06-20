@@ -56,7 +56,8 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
 
 
     //HQL = Hibernate Query Language
-
+    @Query(value = "from Customer c")
+    List<Customer> getAllCustomersWithHQL();
 
 
 
