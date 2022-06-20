@@ -177,6 +177,18 @@ class CustomerRepoTest {
         System.out.println(customer.toString());
     }
 
+    @Test
+    public void textQueryFive(){
+        Customer customer = customerRepo.searchCustomerFromNameWithNamedPara("Kamal","Galle");
+        System.out.println(customer.toString());
+    }
+
+    @Test
+    public void textQuerySix(){
+        Customer customer = customerRepo.getAllCustomersWithJPQLWithParams("C001");
+        System.out.println(customer.toString());
+    }
+
 }
 
 
