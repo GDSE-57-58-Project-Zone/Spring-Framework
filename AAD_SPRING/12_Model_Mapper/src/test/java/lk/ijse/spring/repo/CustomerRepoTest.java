@@ -168,7 +168,9 @@ class CustomerRepoTest {
 
     @Test
     public void textQueryThree(){
-        List<Customer> allCustomers = customerRepo.getAllCustomersWithHQL();
+        PageRequest pr = PageRequest.of(1, 3,Sort.by("id").descending());
+        List<Customer> allCustomers = customerRepo.getAllCustomersWithHQL(pr);
+
         allCustomers.forEach(v->{
             System.out.println(v.toString());
         });
