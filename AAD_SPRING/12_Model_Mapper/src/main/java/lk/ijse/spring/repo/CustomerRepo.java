@@ -82,8 +82,4 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     Customer getAllCustomersWithJPQLWithParams(String id);
 
 
-
-
-
-
 }

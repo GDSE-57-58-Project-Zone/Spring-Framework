@@ -32,9 +32,4 @@ public class Orders {
     @OneToMany(mappedBy = "orders",cascade = CascadeType.ALL)
     private List<OrderDetails> orderDetails;
 
-    public Orders(String oid, LocalDate date, Customer customer) {
-        this.oid = oid;
-        this.date = date;
-        this.customer = customer;
-    }
 }
