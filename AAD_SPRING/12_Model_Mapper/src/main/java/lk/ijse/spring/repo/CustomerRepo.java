@@ -50,8 +50,8 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     List<Customer> getAllCustomers();
 
 
-    //JPQL = Java Persistance Query Language
-    @Query(value = "select u from Customer u")
+    //JPQL = Java Persistence Query Language
+    @Query(value = "select c from Customer c")
     List<Customer> getAllCustomersWithJPQL();
 
 
