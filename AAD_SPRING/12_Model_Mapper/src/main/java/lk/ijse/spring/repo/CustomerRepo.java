@@ -60,6 +60,15 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     List<Customer> getAllCustomersWithHQL();
 
 
+    //Parameters
+    //01 Positional Params =?1
+    //02 Named Params =:name
+
+
+    //native sql with params
+    //positional params
+    @Query(value = "select * from Customer where name=?1 and address=?2",nativeQuery = true)
+    Customer searchCustomerFromName(String name,String address);
 
 
 
