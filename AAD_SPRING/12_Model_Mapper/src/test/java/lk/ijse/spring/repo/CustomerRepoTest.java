@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -198,11 +199,14 @@ class CustomerRepoTest {
         //page - page number, starts with 0
         //size - count of records for a page
 
-        PageRequest pr = PageRequest.of(0, 4);
+        PageRequest pr = PageRequest.of(0, 4, Sort.by("id").descending());
+
         Page<Customer> all = customerRepo.findAll(pr);
         all.forEach(v->{
             System.out.println(v.toString());
         });
+
+
     }
 
 
