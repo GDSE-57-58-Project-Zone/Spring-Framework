@@ -195,6 +195,9 @@ class CustomerRepoTest {
 
     @Test
     public void checkPageableFeatures(){
+        //page - page number, starts with 0
+        //size - count of records for a page
+
         PageRequest pr = PageRequest.of(0, 4);
         Page<Customer> all = customerRepo.findAll(pr);
         all.forEach(v->{
