@@ -146,6 +146,14 @@ class CustomerRepoTest {
         System.out.println(b);
     }
 
+    @Test
+    public void textQueryOne(){
+        List<Customer> allCustomers = customerRepo.getAllCustomers();
+        allCustomers.forEach(v->{
+            System.out.println(v.toString());
+        });
+    }
+
 }
 
 
