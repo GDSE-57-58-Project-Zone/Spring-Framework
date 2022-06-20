@@ -7,15 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="12_Model_Mapper" />
         <module name="10_SpringWithMaven" />
         <module name="11_SpringDataJPA" />
-        <module name="12_Model_Mapper" />
+        <module name="13_SpringBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="10_SpringWithMaven" target="8" />
       <module name="11_SpringDataJPA" target="8" />
       <module name="12_Model_Mapper" target="8" />
+      <module name="13_SpringBoot" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,6 +4,7 @@
     <file type="web" url="file://$PROJECT_DIR$/10_SpringWithMaven" />
     <file type="web" url="file://$PROJECT_DIR$/11_SpringDataJPA" />
     <file type="web" url="file://$PROJECT_DIR$/12_Model_Mapper" />
+    <file type="web" url="file://$PROJECT_DIR$/13_SpringBoot" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/dd" />
@@ -14,6 +15,7 @@
         <option value="$PROJECT_DIR$/10_SpringWithMaven/pom.xml" />
         <option value="$PROJECT_DIR$/11_SpringDataJPA/pom.xml" />
         <option value="$PROJECT_DIR$/12_Model_Mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/13_SpringBoot/pom.xml" />
       </list>
     </option>
   </component>
