@@ -1,10 +1,10 @@
 package lk.ijse.spring.repo;
 
-import lk.ijse.spring.config.JPAConfig;
 import lk.ijse.spring.entity.Item;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -16,9 +16,8 @@ import java.util.Optional;
  * @author : Sanu Vithanage
  * @since : 0.1.0
  **/
-@WebAppConfiguration // State test configuration class
-@ContextConfiguration(classes = {JPAConfig.class}) // import configurations for Test Context
-@ExtendWith(SpringExtension.class) // Run with Spring Extension
+
+@SpringBootTest
 class ItemRepoTest {
 
     @Autowired
